@@ -1,2 +1,4 @@
+defaultWindowTitle: Omicron Inc Research Facility
+
 modules: [] # Any needed RobustToolbox modules here.
 assemblyPrefix: Content # Assembly prefix here.

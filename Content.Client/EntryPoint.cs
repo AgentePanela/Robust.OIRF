@@ -15,7 +15,8 @@ public sealed class EntryPoint : GameClient
 {
     public override void PreInit()
     { 
-        IoCManager.Resolve<IClyde>().SetWindowTitle("Robust Pong");
+        IoCManager.Resolve<IClyde>();//.SetWindowTitle(defaultWindowTitle);
+        
     }
 
     public override void Init()
