@@ -30,11 +30,19 @@ public sealed class PaddleController : VirtualController
             // Check if down is pressed.
             if((paddle.Pressed & Button.Down) != 0)
                 direction -= Vector2.UnitY;
+            
+            // Check if left is pressed.
+            if((paddle.Pressed & Button.Right) != 0)
+                direction += Vector2.UnitX;
+                
+            // Check if right is pressed.
+            if((paddle.Pressed & Button.Left) != 0)
+                direction -= Vector2.UnitX;
                 
             PhysicsSystem.SetLinearVelocity(uid, direction * speed, body:physics);
 
             var worldPos = TransformSystem.GetWorldPosition(transform);
-            TransformSystem.SetWorldPosition(transform, new Vector2(paddle.PaddleX, worldPos.Y));
+            TransformSystem.SetWorldPosition(transform, new Vector2(worldPos.X, worldPos.Y));
         }
     }
 }

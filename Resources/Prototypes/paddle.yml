@@ -15,7 +15,9 @@
             bounds: "-0.1,-1,0.1,1"
           layer:
             - Solid
-          mask:
-            - Solid
+          #mask:
+          #  - Solid
     - type: Paddle
     - type: Input
+    - type: Sprite
+      texture: /Textures/noSprite.png

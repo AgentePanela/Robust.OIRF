@@ -94,7 +94,7 @@ public sealed class PongSystem : SharedPongSystem
     {
         DebugTools.Assert(State == PongGameState.Start);
 
-        if (ConnectedPlayers < 2)
+        if (ConnectedPlayers < 1)
             return;
             
         Log.Info("Starting pong game...");
@@ -104,7 +104,7 @@ public sealed class PongSystem : SharedPongSystem
         var players = _playerManager.ServerSessions.ToList();
 
         _playerOne = _random.PickAndTake(players);
-        _playerTwo = _random.PickAndTake(players);
+        //_playerTwo = _random.PickAndTake(players);
 
         _map = _mapManager.CreateMap();
             
@@ -112,7 +112,7 @@ public sealed class PongSystem : SharedPongSystem
         _physics.SetLinearVelocity(_ball.Value, Vector2.One * BallInitialSpeed * BallScoreSpeedMultiplier);
 
         _paddleOne = MakePaddle(_playerOne, true);
-        _paddleTwo = MakePaddle(_playerTwo, false);
+        //_paddleTwo = MakePaddle(_playerTwo, false);
             
         foreach (var player in players)
         {
@@ -177,7 +177,7 @@ public sealed class PongSystem : SharedPongSystem
         DebugTools.Assert(State == PongGameState.Game);
             
         var entity = EntityManager.SpawnEntity("Paddle", first ? PaddleOneStarting : PaddleTwoStarting);
-        var paddle = Comp<PaddleComponent>(entity);
+        TryComp<PaddleComponent>(entity, out var paddle);
 
         paddle.Player = session.Name;
         paddle.First = first;
@@ -219,7 +219,8 @@ public sealed class PongSystem : SharedPongSystem
 
             _actor.Attach(paddle, player);
 
-            var paddleComp = Comp<PaddleComponent>(paddle);
+            TryComp<PaddleComponent>(paddle, out var paddleComp);
+
             paddleComp.Player = player.Name;
             Dirty(paddle, paddleComp);
 
@@ -276,7 +277,7 @@ public sealed class PongSystem : SharedPongSystem
                 // Check that we still have a minimum of two players connected...
                 if (ConnectedPlayers < 2)
                 {
-                    EndGame();
+                    //EndGame();
                     break;
                 }
 

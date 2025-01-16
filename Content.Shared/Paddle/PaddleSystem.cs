@@ -34,6 +34,8 @@ public sealed class PaddleSystem : EntitySystem
         CommandBinds.Builder
             .Bind(EngineKeyFunctions.MoveUp, new ButtonInputCmdHandler(Button.Up, SetMovementInput))
             .Bind(EngineKeyFunctions.MoveDown, new ButtonInputCmdHandler(Button.Down, SetMovementInput))
+            .Bind(EngineKeyFunctions.MoveLeft, new ButtonInputCmdHandler(Button.Left, SetMovementInput))
+            .Bind(EngineKeyFunctions.MoveRight, new ButtonInputCmdHandler(Button.Right, SetMovementInput))
             .Register<PaddleSystem>();
     }
 
@@ -138,4 +140,6 @@ public enum Button
     None = 0,
     Up = 1,
     Down = 2,
+    Right = 3,
+    Left = 4
 }
