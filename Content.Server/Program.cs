@@ -14,6 +14,7 @@ internal static class Program
         ContentStart.StartLibrary(args, new ServerOptions
         {
             Sandboxing = false,
+            LoadConfigAndUserData = true,
         });
 
         

@@ -1,0 +1,43 @@
+# Welcome to the example configuration file!
+# Remember that if this is in bin/Content.Server or such, it may be overwritten on build.
+# Consider copying it and using the --config-file and --data-dir options.
+
+[log]
+path = "logs"
+format = "log_%(date)s-%(time)s.txt"
+level = 1
+enabled = false
+
+[net]
+tickrate = 60
+port = 1313
+bindto = "::,0.0.0.0"
+max_connections = 256
+# Automatic port forwarding!
+# Disabled by default because you may not want to do this.
+# upnp = true
+
+[status]
+# The status server is the TCP side, used by the launcher to determine engine version, etc.
+# To be clear: Disabling it makes the launcher unable to connect!
+enabled = true
+
+# This is the address and port the status server binds to.
+# The port is by default set based on net.port so it will follow what you set there.
+bind = "*:1313"
+
+
+[console]
+# If this is true, people connecting from this machine (loopback)
+# will automatically be elevated to full admin privileges.
+# This literally works by checking if address == 127.0.0.1 || address == ::1
+loginlocal = true
+
+[build]
+# *Absolutely all of these can be supplied using a "build.json" file*
+# For further information, see https://github.com/space-wizards/space-station-14/blob/master/Tools/gen_build_info.py
+# The main reason you'd want to supply any of these manually is for a custom fork and if you have no tools.
+
+# Automatically set if self-hosting client zip, but otherwise use this when updating client build.
+# There is no required format, any change counts as a new version.
+ version = "Example1"

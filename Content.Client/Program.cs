@@ -17,6 +17,7 @@ internal static class Program
         {
             // DEVNOTE: Your options here.
             Sandboxing = false,
+            UserDataDirectoryName = "Omicron Inc Research Facility", //can i put this in manifest.yml?
         });
     }
 }
