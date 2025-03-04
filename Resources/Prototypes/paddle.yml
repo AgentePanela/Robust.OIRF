@@ -20,4 +20,5 @@
     - type: Paddle
     - type: Input
     - type: Sprite
-      texture: /Textures/noSprite.png
+      texture: /Textures/test.png
+    - type: 
