@@ -6,6 +6,7 @@ using Robust.Client.UserInterface.States;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Robust.Client.UserInterface;
 
 // DEVNOTE: Games that want to be on the hub can change their namespace prefix in the "manifest.yml" file.
 namespace Content.Client;
@@ -13,6 +14,7 @@ namespace Content.Client;
 [UsedImplicitly]
 public sealed class EntryPoint : GameClient
 {
+    [Dependency] private readonly IUserInterfaceManager _userInterface = default!;
     public override void Init()
     {
         var factory = IoCManager.Resolve<IComponentFactory>();
@@ -53,7 +55,7 @@ public sealed class EntryPoint : GameClient
         stateManager.RequestStateChange<DebugBuiltinConnectionScreenState>();
 
         // DEVNOTE: Further setup...
-        //var client = IoCManager.Resolve<IBaseClient>();
+        var client = IoCManager.Resolve<IBaseClient>();
 
         // Optionally, singleplayer also works!
         // client.StartSinglePlayer();
