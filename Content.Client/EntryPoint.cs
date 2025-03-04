@@ -7,6 +7,8 @@ using Robust.Shared.ContentPack;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Client.UserInterface;
+using Content.Client.UserInterface.ConnectionScreen;
+using Content.Client.UserInterface;
 
 // DEVNOTE: Games that want to be on the hub can change their namespace prefix in the "manifest.yml" file.
 namespace Content.Client;
@@ -38,6 +40,8 @@ public sealed class EntryPoint : GameClient
 
         factory.GenerateNetIds();
 
+        IoCManager.Resolve<StyleSheetManager>().Initialize();
+
         // DEVNOTE: This is generally where you'll be setting up the IoCManager further.
     }
 
@@ -52,10 +56,10 @@ public sealed class EntryPoint : GameClient
 
         // DEVNOTE: It's recommended to look at how this works! It's for debug purposes and you probably want something prettier for the final game.
         // Additionally, state manager is the primary way you'll be changing between UIScreen instances.
-        stateManager.RequestStateChange<DebugBuiltinConnectionScreenState>();
+        stateManager.RequestStateChange<ConnectionScreenState>();
 
         // DEVNOTE: Further setup...
-        var client = IoCManager.Resolve<IBaseClient>();
+        //var client = IoCManager.Resolve<IBaseClient>();
 
         // Optionally, singleplayer also works!
         // client.StartSinglePlayer();

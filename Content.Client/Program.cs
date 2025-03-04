@@ -7,7 +7,7 @@ internal static class Program
 {
     public static void Main(string[] args)
     {
-        ContentStart.Start(args);
+        //ContentStart.Start(args);
             
         /*
         // DEVNOTE: If you want to use RobustToolbox as a library, use the method below instead.
@@ -21,7 +21,7 @@ internal static class Program
             // Check "RobustToolbox/Resources/Textures/Logo/icon" for an example window icon set.
             //WindowIconSet = new ResPath("/path/to/folder/with/window/icon/set"),
             //DefaultWindowTitle = "Robust Template"
-            
+
         });
     }
 }

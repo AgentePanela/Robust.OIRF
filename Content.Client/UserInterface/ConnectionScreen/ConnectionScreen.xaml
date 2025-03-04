@@ -1,0 +1,12 @@
+<screens:ConnectionScreen
+    xmlns="https://spacestation14.io"
+    xmlns:screens="clr-namespace:Content.Client.UserInterface.ConnectionScreen">
+    <BoxContainer Name="ConnectionBox" Orientation="Vertical">
+        <Label Name="Tittle" Text="Connect to a server." Margin="2" StyleClasses="LabelGame"></Label>
+        <LineEdit Name="UsernameEdit"  Margin="2" MinWidth="200"/>
+        <LineEdit Name="ConnectionAddress" Text="localhost:1212" Margin="2" MinWidth="200"/>
+        <Button Name="ConnectButton" Text="Direct Connect" Margin="2"/>
+        <Button Name="QuitButton" Text="Quit" Margin="2"/>
+        <Label Name="Status" Text="" Margin="2"></Label>
+    </BoxContainer>
+</screens:ConnectionScreen>

@@ -1,0 +1,16 @@
+<screens:MainMenu
+    xmlns="https://spacestation14.io"
+    xmlns:screens="clr-namespace:Content.Client.UserInterface.MainMenu"
+    xmlns:style="clr-namespace:Content.Client.UserInterface"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls">
+    <BoxContainer Name="MainMenuBox" Orientation="Vertical" Margin="2">
+        <Label Name="Tittle" Text="GameTittlePlaceholder" StyleClasses="LabelGame"></Label>
+        <controls:HSpacer Spacing="10" />
+        <Button Name="ConnectButton" Text="Join" Margin="2"/>
+        <Button Name="SettingsButton" Text="Settings" Margin="2"/>
+        <Button Name="QuitButton" Text="Quit" Margin="2"/>
+    </BoxContainer>
+    <BoxContainer Name="AboutBox"> 
+        <Label Name="Username" Text="Loading..."></Label>
+    </BoxContainer>
+</screens:MainMenu>
